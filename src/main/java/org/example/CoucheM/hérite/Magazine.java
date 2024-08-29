@@ -10,7 +10,7 @@ public abstract class Magazine extends Document {
 
 
 
-    public Magazine(Integer id, String titre, String auteur, LocalDate datePublication, int nombreDePages,int Numero) {
+    public Magazine(int id, String titre, String auteur, LocalDate datePublication, int nombreDePages,int Numero) {
         super(id, titre, auteur, datePublication, nombreDePages);
         this.Numero=Numero;
     }
@@ -42,9 +42,9 @@ public abstract class Magazine extends Document {
           public void afficherDetails() {
 
               // Affichage des détails du document
-              System.out.printf("%-10d | %-20s | %-30s | %-15s | %-10d |  %-12s |%n",
+              System.out.printf("%-10d | %-20s | %-30s | %-15s | %-10d |  %-12s | %-15s  %n",
                       getId(), getTitre(), getAuteur(), getDatePublication(), getNombreDePages(),
-                      (isStatus() ? "Emprunté" : "Disponible"));
+                      (isStatus() ? "Emprunté" : "Disponible"),Numero);
 
 
               System.out.println("---------------------------------------------------------------------------------------------------------------------------------");

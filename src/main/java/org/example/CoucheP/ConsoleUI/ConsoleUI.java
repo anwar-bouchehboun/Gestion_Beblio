@@ -22,7 +22,7 @@ public class ConsoleUI {
      System.out.println("Press 4 to" +CostumColor.PURPLE_BOLD_BRIGHT +"• Afficher tous les documents "+ CostumColor.RESET);
      System.out.println("Press 5 to" +CostumColor.PURPLE_BOLD_BRIGHT +"• Rechercher un document "+ CostumColor.RESET);
      System.out.println("Press 6 to" +CostumColor.PURPLE_BOLD_BRIGHT +" _____EXIT__________"+ CostumColor.RESET);
-     System.out.println("Choix " +CostumColor.PURPLE_BOLD_BRIGHT +" CHOIX "+ CostumColor.RESET);
+     System.out.println("Choix => : " +CostumColor.PURPLE_BOLD_BRIGHT + " CHOIX "+ CostumColor.RESET);
          int ch = choix.nextInt();
 
      switch (ch) {
@@ -59,7 +59,8 @@ public class ConsoleUI {
 
 
      System.out.println("Entrez l'ID du document :");
-     Integer id = Integer.parseInt(choix.nextLine());
+     int id = choix.nextInt();
+     choix.nextLine();
      System.out.println("Entrez le titre du document :");
      String titre = choix.nextLine();
      System.out.println("Entrez l'auteur du document :");
@@ -80,18 +81,18 @@ public class ConsoleUI {
      choix.nextLine();
      System.out.println("Quel type de document voulez-vous ajouter ? (1. Livre, 2. Magazine)");
      int type = choix.nextInt();
-
+     choix.nextLine();
      if (type == 1) {
          System.out.println("Entrez l'ISBN du livre :");
          String isbn = choix.nextLine();
-         //Bibliotheque.AddDoc(new Livre(id, titre, auteur, datePublication, nombreDePages, isbn));
+         Bibliotheque.AddDoc(new Livre(id, titre, auteur, datePublication, nombreDePages, isbn));
      } else if (type == 2) {
          System.out.println("Entrez le numéro du magazine :");
          int numero = choix.nextInt();
-         choix.nextLine();  // Consume newline
+         choix.nextLine();
          Bibliotheque.AddDoc(new Magazine(id, titre, auteur, datePublication, nombreDePages, numero) {
          });
-     } else {
+     }else {
          System.out.println("Type de document invalide.");
      }
  }

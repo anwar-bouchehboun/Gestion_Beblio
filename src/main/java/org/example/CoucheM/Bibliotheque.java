@@ -29,8 +29,8 @@ public class Bibliotheque {
         if (documents.isEmpty()) {
             System.out.println("Aucun document n'est disponible dans la bibliothèque.");
         } else {
-            System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s  | %-12s |%n",
-                    "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Statut");
+            System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s  | %-12s |%-15s %n",
+                    "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Statut", "ISBN/Numéro");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
             //method reference

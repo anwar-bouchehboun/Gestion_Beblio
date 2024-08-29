@@ -3,14 +3,14 @@ package org.example.CoucheM.abstraite;
 import java.time.LocalDate;
 
 public abstract  class Document {
-    private Integer id;
+    private int id;
     private String titre;
     private String auteur;
     private LocalDate datePublication;
     private int nombreDePages;
     private  boolean Status;
 
-    public Document(Integer id, String titre, String auteur, LocalDate datePublication, int nombreDePages) {
+    public Document(int id, String titre, String auteur, LocalDate datePublication, int nombreDePages) {
         this.id = id;
         this.titre = titre;
         this.auteur = auteur;

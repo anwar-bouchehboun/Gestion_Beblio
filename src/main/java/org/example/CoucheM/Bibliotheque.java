@@ -16,8 +16,7 @@ public class Bibliotheque {
 
 
      public void AddDoc(Document document){
-      /*   String doc = document.toString();
-         System.out.println(doc);*/
+
         documents.add(document);
          Recherche.ajouterDocument(document);
        //  documentsMaping.put(document.getId(),document);

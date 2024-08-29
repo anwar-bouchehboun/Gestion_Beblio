@@ -3,13 +3,15 @@ package org.example.CoucheP.ConsoleUI;
 import org.example.CoucheM.Bibliotheque;
 import org.example.CoucheM.hérite.Livre;
 import org.example.CoucheM.hérite.Magazine;
+import org.example.CoucheU.Pattern.PattrenUtils;
 import org.example.CoucheU.date.DateUtils;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ConsoleUI {
-    private static Scanner choix= new Scanner(System.in);
+    private final Scanner choix= new Scanner(System.in);
     Bibliotheque Bibliotheque =new Bibliotheque();
 
  public void Start(){
@@ -43,7 +45,9 @@ public class ConsoleUI {
              rechDocument();
              break;
          case 6 :
-             break;
+             System.out.println("-----_____Exit_______------");
+             return;
+
          default:
              System.out.println(CostumColor.RED_BOLD_BRIGHT+"Invalid choice");
              break;
@@ -55,16 +59,12 @@ public class ConsoleUI {
 
  public void AjouterDoc() {
 
+     int id = PattrenUtils.getIntInput("Entrez l'ID du document (numérique) :");
+     String titre = PattrenUtils.getStringInput("Entrez le titre du document :");
+     String auteur = PattrenUtils.getStringInput("Entrez l'auteur du document :");
+     int nombreDePages = PattrenUtils.getIntInput("Entrez le nombre de pages :");
+
      Scanner choix = new Scanner(System.in);
-
-
-     System.out.println("Entrez l'ID du document :");
-     int id = choix.nextInt();
-     choix.nextLine();
-     System.out.println("Entrez le titre du document :");
-     String titre = choix.nextLine();
-     System.out.println("Entrez l'auteur du document :");
-     String auteur = choix.nextLine();
      LocalDate datePublication;
      do {
          System.out.println("Entrez la date de publication (AAAA-MM-JJ) :");
@@ -75,24 +75,15 @@ public class ConsoleUI {
 
          }
      } while (datePublication == null);
-
-     System.out.println("Entrez le nombre de pages :");
-     int nombreDePages = choix.nextInt();
-     choix.nextLine();
-     System.out.println("Quel type de document voulez-vous ajouter ? (1. Livre, 2. Magazine)");
-     int type = choix.nextInt();
-     choix.nextLine();
+     int type = PattrenUtils.getDocumentType();
      if (type == 1) {
-         System.out.println("Entrez l'ISBN du livre :");
-         String isbn = choix.nextLine();
+         String isbn = PattrenUtils.getStringInput("Entrez l'ISBN du livre :");
          Bibliotheque.AddDoc(new Livre(id, titre, auteur, datePublication, nombreDePages, isbn));
      } else if (type == 2) {
-         System.out.println("Entrez le numéro du magazine :");
-         int numero = choix.nextInt();
-         choix.nextLine();
+         int numero = PattrenUtils.getIntInput("Entrez le numéro du magazine :");
          Bibliotheque.AddDoc(new Magazine(id, titre, auteur, datePublication, nombreDePages, numero) {
          });
-     }else {
+     } else {
          System.out.println("Type de document invalide.");
      }
  }

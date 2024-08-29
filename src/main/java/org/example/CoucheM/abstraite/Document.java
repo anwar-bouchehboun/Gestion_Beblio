@@ -3,7 +3,7 @@ package org.example.CoucheM.abstraite;
 import java.time.LocalDate;
 
 public abstract  class Document {
-    private int id;
+    private Integer id;
     private String titre;
     private String auteur;
     private LocalDate datePublication;

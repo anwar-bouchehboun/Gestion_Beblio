@@ -21,6 +21,7 @@ public class Bibliotheque {
          Recherche.ajouterDocument(document);
        //  documentsMaping.put(document.getId(),document);
          System.out.println(   CostumColor.BROWN_BACKGROUND+CostumColor.WHITE_BOLD_BRIGHT+"Document ajouté avec succès. "+ CostumColor.RESET);
+         System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
      }
      //Affiche Doc
@@ -61,8 +62,8 @@ public class Bibliotheque {
 //Search
     public void rechDocument(String titre) {
         Optional<Document> document = Recherche.trouverDocumentParTitre(titre);
-        System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s | %-12s |%n",
-                "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Statut");
+        System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s | %-12s |  %-12s %n",
+                "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Statut","Isbn/Numero");
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
         document.ifPresentOrElse(

@@ -40,17 +40,14 @@ public abstract class Magazine extends Document {
 
           @Override
           public void afficherDetails() {
-              System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s | %-15s | %-12s |%n",
-                      "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Numéro", "Statut");
-              System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
               // Affichage des détails du document
-              System.out.printf("%-10d | %-20s | %-30s | %-15s | %-10d | %-15s | %-12s |%n",
+              System.out.printf("%-10d | %-20s | %-30s | %-15s | %-10d |  %-12s |%n",
                       getId(), getTitre(), getAuteur(), getDatePublication(), getNombreDePages(),
-                      Numero,
                       (isStatus() ? "Emprunté" : "Disponible"));
 
 
+              System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
 
              /* System.out.println("Titre: " + getTitre());

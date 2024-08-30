@@ -1,6 +1,7 @@
 package org.example.CoucheP.ConsoleUI;
 
 import org.example.CoucheM.Bibliotheque;
+import org.example.CoucheM.controller.ControllerBiblio;
 import org.example.CoucheM.hérite.Livre;
 import org.example.CoucheM.hérite.Magazine;
 import org.example.CoucheU.Pattern.PattrenUtils;
@@ -11,8 +12,9 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class ConsoleUI {
+    ControllerBiblio Bibliotheque =new ControllerBiblio();
     private final Scanner choix= new Scanner(System.in);
-    Bibliotheque Bibliotheque =new Bibliotheque();
+
 
  public void Start(){
      do {
@@ -29,20 +31,20 @@ public class ConsoleUI {
 
      switch (ch) {
          case 1:
-             AjouterDoc();
+             Bibliotheque.AjouterDoc();
              break;
          case 2:
-             Emprunter();
+             Bibliotheque.Emprunter();
              break;
          case 3:
-             Retourner();
+             Bibliotheque.Retourner();
              break;
          case 4:
              Bibliotheque.afficherTousLesDocuments();
 
              break;
          case 5:
-             rechDocument();
+             Bibliotheque.rechDocument();
              break;
          case 6 :
              System.out.println("-----_____Exit_______------");
@@ -56,7 +58,7 @@ public class ConsoleUI {
  }
 
 
-
+/*
  public void AjouterDoc() {
 
      int id = PattrenUtils.getIntInput("Entrez l'ID du document (numérique) :");
@@ -106,6 +108,6 @@ public class ConsoleUI {
         System.out.println("Entrez le titre du document :");
         String titre = scanner.nextLine();
         Bibliotheque.rechDocument(titre);
-    }
+    }*/
 
 }

@@ -42,13 +42,7 @@ public class Bibliotheque {
         }*/
         }
     }
-//filter par titre
-  /*  public Optional<Document> trouverDocumentParTitre(String titre) {
-        //Hashmap
-        return documentsMaping.values().stream()
-                .filter(doc -> doc.getTitre().equalsIgnoreCase(titre))
-                .findFirst();
-    }*/
+
    // emprunter Document
     public void emprunterDocument(String titre) {
         Optional<Document> document = Recherche.trouverDocumentParTitre(titre);

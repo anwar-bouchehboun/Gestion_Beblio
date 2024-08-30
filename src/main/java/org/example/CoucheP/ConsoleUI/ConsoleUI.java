@@ -10,7 +10,7 @@ public class ConsoleUI {
     private final Scanner choix= new Scanner(System.in);
 
 
- public void Start(){
+ public  void Start(){
      do {
          System.out.println(CostumColor.BROWN_BACKGROUND+CostumColor.WHITE_BOLD_BRIGHT+"----------------------------------------------------------- "+ CostumColor.RESET);
          System.out.println(CostumColor.WHITE_BOLD_BRIGHT+"|                  Welcome to Bibliotheque :     "+ CostumColor.RESET);
@@ -45,7 +45,7 @@ public class ConsoleUI {
              Bibliotheque.rechDocument();
              break;
          case 6 :
-             System.out.println("-----_____Exit_______------");
+             System.out.println(CostumColor.PURPLE_BOLD_BRIGHT +"-----_____Exit_______------"+ CostumColor.RESET);
              return;
 
          default:

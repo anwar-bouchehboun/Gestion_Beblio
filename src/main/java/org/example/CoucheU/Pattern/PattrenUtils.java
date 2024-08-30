@@ -25,7 +25,8 @@ public class PattrenUtils {
             System.out.println(prompt);
             String input = scanner.nextLine().trim();
             if (!input.isEmpty()) {
-                return input;
+                    return input;
+
             } else {
                 System.out.println("L'entrée ne peut pas être vide.");
             }
@@ -41,6 +42,24 @@ public class PattrenUtils {
                 return Integer.parseInt(input);
             } else {
                 System.out.println("Type de document invalide. Veuillez entrer 1 ou 2.");
+            }
+        }
+    }
+
+
+    public static String getStringInputType(String prompt) {
+        while (true) {
+            System.out.println(prompt);
+            String input = scanner.nextLine().trim();
+
+            if (!input.isEmpty()) {
+                if (Pattern.matches("^\\d{3}-\\d{3}$", input)) {
+                    return input;
+                } else {
+                    System.out.println("L'entrée n'est pas au format attendu 123-456.");
+                }
+            } else {
+                System.out.println("L'entrée ne peut pas être vide.");
             }
         }
     }

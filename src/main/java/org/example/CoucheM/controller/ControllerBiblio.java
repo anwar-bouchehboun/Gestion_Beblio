@@ -8,6 +8,7 @@ import org.example.CoucheU.date.DateUtils;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ControllerBiblio {
 
@@ -22,20 +23,26 @@ public class ControllerBiblio {
         int nombreDePages = PattrenUtils.getIntInput("Entrez le nombre de pages :");
 
         Scanner choix = new Scanner(System.in);
-        LocalDate datePublication;
+        LocalDate datePublication,currentDate;
+        currentDate  = LocalDate.now();
         do {
             System.out.println("Entrez la date de publication (AAAA-MM-JJ) :");
             datePublication = DateUtils.parseDate(choix.nextLine());
 
-            if (datePublication == null) {
+            if (datePublication == null || datePublication.isAfter(currentDate)) {
                 System.out.println("Date de publication invalide, opération annulée.");
 
             }
-        } while (datePublication == null);
+        } while (datePublication == null || datePublication.isAfter(currentDate));
         int type = PattrenUtils.getDocumentType();
         if (type == 1) {
-            String isbn = PattrenUtils.getStringInput("Entrez l'ISBN du livre :");
-            Bibliotheque.AddDoc(new Livre(id, titre, auteur, datePublication, nombreDePages, isbn));
+
+            String isbn = PattrenUtils.getStringInputType("Entrez l'ISBN du livre :");
+
+                Bibliotheque.AddDoc(new Livre(id, titre, auteur, datePublication, nombreDePages, isbn));
+
+
+
         } else if (type == 2) {
             int numero = PattrenUtils.getIntInput("Entrez le numéro du magazine :");
             Bibliotheque.AddDoc(new Magazine(id, titre, auteur, datePublication, nombreDePages, numero) {

@@ -65,7 +65,8 @@ public abstract class Magazine extends Document {
                 ", titre='" + getTitre() + '\'' +
                 ", auteur='" + getAuteur() + '\'' +
                 ", datePublication='" + getDatePublication() + '\'' +
-                ", nombreDePages=" + Numero +
+                ", nombreDePages=" + getNombreDePages() +
+                ", Numero=" + Numero +
 
                 '}';
     }

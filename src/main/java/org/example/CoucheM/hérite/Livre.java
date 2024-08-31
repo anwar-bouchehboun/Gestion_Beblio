@@ -51,13 +51,13 @@ public class Livre extends Document {
 
     @Override
     public String toString() {
-        return "Magazine{" +
+        return "Livre{" +
                 "id=" + getId() +
                 ", titre='" + getTitre() + '\'' +
                 ", auteur='" + getAuteur() + '\'' +
                 ", datePublication='" + getDatePublication() + '\'' +
-                ", nombreDePages=" + isbn +
-
+                ", nombreDePages=" + getNombreDePages() +
+                ", Isbn=" + isbn +
                 '}';
     }
 }

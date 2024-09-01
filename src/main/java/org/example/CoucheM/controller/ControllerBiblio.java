@@ -3,10 +3,12 @@ package org.example.CoucheM.controller;
 import org.example.CoucheM.Bibliotheque;
 import org.example.CoucheM.hérite.Livre;
 import org.example.CoucheM.hérite.Magazine;
+import org.example.CoucheP.ConsoleUI.CostumColor;
 import org.example.CoucheU.Pattern.PattrenUtils;
 import org.example.CoucheU.date.DateUtils;
 
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -65,15 +67,46 @@ public class ControllerBiblio {
         String titre = scanner.nextLine();
         Bibliotheque.retournerDocument(titre);
     }
-    public void rechDocument(){
 
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("Entrez le titre du document :");
-        String titre = scanner.nextLine();
-        Bibliotheque.rechDocument(titre);
-    }
+
 
     public void afficherTousLesDocuments() {
         Bibliotheque.afficherTousLesDocuments();
+    }
+
+    public void rechDocument() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Choisissez une option :\n1. Recherche par titre\n2. Recherche par ID\n3. Quitter");
+            String choix = scanner.nextLine();
+
+            switch (choix) {
+                case "1":
+                    System.out.println("Entrez le titre du document :");
+                    String titre = scanner.nextLine();
+                    Bibliotheque.rechDocument(titre);
+                    break;
+
+                case "2":
+                    System.out.println("Entrez l'id du document :");
+                    try {
+                        int id = scanner.nextInt();
+                        scanner.nextLine(); // Consume newline left-over
+                        Bibliotheque.rechDocumentGetId(id);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Veuillez entrer un nombre valide pour l'id.");
+                        scanner.nextLine(); // Clear invalid input
+                    }
+                    break;
+
+                case "3":
+                    System.out.println(CostumColor.PURPLE_BOLD_BRIGHT + "-----_____Exit Recherche_______------" + CostumColor.RESET);
+                    return;
+
+                default:
+                    System.out.println(CostumColor.RED_BOLD_BRIGHT + "Choix invalide, veuillez réessayer." + CostumColor.RESET);
+                    break;
+            }
+        }
     }
 }

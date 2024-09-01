@@ -22,9 +22,7 @@ public class Recherche {
     }
 
     public static Optional<Document> trouverDocumentParId(Integer id) {
-        return documentsMaping.values().stream()
-                .filter(doc -> doc.getId().equals(id))
-                .findFirst();
+        return Optional.ofNullable(documentsMaping.get(id));
     }
 
 }

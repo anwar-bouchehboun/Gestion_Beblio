@@ -63,5 +63,15 @@ public class Bibliotheque {
         );
     }
 
+   public void  rechDocumentGetId(int id){
+       Optional<Document> document = Recherche.trouverDocumentParId(id);
+       System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s | %-12s |  %-12s %n",
+               "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Statut","Isbn/Numero");
+       System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
+       document.ifPresentOrElse(
+               Document::afficherDetails,
+               () -> System.out.println("Aucun document trouvé avec le titre \"" + id + "\".")
+       );
+   }
 }

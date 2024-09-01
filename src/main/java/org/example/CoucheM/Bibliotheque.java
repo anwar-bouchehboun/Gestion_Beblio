@@ -14,15 +14,12 @@ public class Bibliotheque {
         // documentsMaping= new HashMap<>();
      }
 
-
      public void AddDoc(Document document){
-
         documents.add(document);
          Recherche.ajouterDocument(document);
        //  documentsMaping.put(document.getId(),document);
          System.out.println(   CostumColor.BROWN_BACKGROUND+CostumColor.WHITE_BOLD_BRIGHT+"Document ajouté avec succès. "+ CostumColor.RESET);
          System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
-
      }
      //Affiche Doc
     public void afficherTousLesDocuments() {

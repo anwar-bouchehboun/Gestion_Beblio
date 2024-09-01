@@ -77,7 +77,8 @@ public class ControllerBiblio {
     public void rechDocument() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Choisissez une option :\n1. Recherche par titre\n2. Recherche par ID\n3. Quitter");
+
+            System.out.println(CostumColor.PURPLE_BOLD_BRIGHT +"Choisissez une option :\n1. Recherche par titre\n2. Recherche par ID\n3. Quitter"  + CostumColor.RESET);
             String choix = scanner.nextLine();
 
             switch (choix) {
@@ -91,11 +92,11 @@ public class ControllerBiblio {
                     System.out.println("Entrez l'id du document :");
                     try {
                         int id = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline left-over
+                        scanner.nextLine();
                         Bibliotheque.rechDocumentGetId(id);
                     } catch (InputMismatchException e) {
                         System.out.println("Veuillez entrer un nombre valide pour l'id.");
-                        scanner.nextLine(); // Clear invalid input
+                        scanner.nextLine();
                     }
                     break;
 

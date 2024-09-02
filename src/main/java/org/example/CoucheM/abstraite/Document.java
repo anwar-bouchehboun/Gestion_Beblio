@@ -3,6 +3,7 @@ package org.example.CoucheM.abstraite;
 import java.time.LocalDate;
 
 public abstract  class Document {
+    public static Integer index=1;
     private Integer id;
     private String titre;
     private String auteur;
@@ -10,8 +11,8 @@ public abstract  class Document {
     private int nombreDePages;
     private  boolean Status;
 
-    public Document(int id, String titre, String auteur, LocalDate datePublication, int nombreDePages) {
-        this.id = id;
+    public Document( String titre, String auteur, LocalDate datePublication, int nombreDePages) {
+        this.id = index++;
         this.titre = titre;
         this.auteur = auteur;
         this.datePublication = datePublication;
@@ -30,9 +31,6 @@ public abstract  class Document {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getTitre() {
         return titre;

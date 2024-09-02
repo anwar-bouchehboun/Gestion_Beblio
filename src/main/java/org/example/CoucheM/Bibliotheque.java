@@ -39,6 +39,17 @@ public class Bibliotheque {
         }*/
         }
     }
+    public void affichedocumentEmp(){
+        if (documents.stream().anyMatch(Document::isStatus)) {
+            System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s  | %-12s |%-15s %n",
+                    "ID", "Titre", "Auteur", "Date Pub.", "Pages", "Statut", "ISBN/Numéro");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
+            documents.stream().filter(Document::isStatus).forEach(Document::afficherDetails);
+
+        } else {
+            System.out.println("Aucun document Emprunt  n'est disponible dans la bibliothèque.");
+        }
+        }
 
    // emprunter Document
     public void emprunterDocument(String titre) {

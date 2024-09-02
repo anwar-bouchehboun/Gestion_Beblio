@@ -10,8 +10,8 @@ public abstract class Magazine extends Document {
 
 
 
-    public Magazine(int id, String titre, String auteur, LocalDate datePublication, int nombreDePages,int Numero) {
-        super(id, titre, auteur, datePublication, nombreDePages);
+    public Magazine( String titre, String auteur, LocalDate datePublication, int nombreDePages,int Numero) {
+        super(titre, auteur, datePublication, nombreDePages);
         this.Numero=Numero;
     }
 

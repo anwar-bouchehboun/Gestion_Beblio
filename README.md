@@ -1,5 +1,5 @@
 #Lien Planification : https://anouarab95.atlassian.net/jira/software/projects/GDBA/boards/3/backlog
-
+jar : java -jar Gestion_Bibliotheque.jar
 Contexte du projet
 Une bibliothèque municipale souhaite automatiser ses tâches via un système de gestion informatisé. Votre mission est de développer une application console en Java 8 pour gérer efficacement l'inventaire des livres et magazines, ainsi que les emprunts et retours.
 

@@ -8,7 +8,6 @@ import java.util.*;
 
 public class Bibliotheque {
     private final List<Document> documents;
-   // private final Map<Integer, Document> documentsMaping;
      public Bibliotheque(){
          documents=new ArrayList<>();
         // documentsMaping= new HashMap<>();

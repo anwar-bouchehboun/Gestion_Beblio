@@ -72,7 +72,7 @@ public class Bibliotheque {
                 () -> System.out.println("Aucun document trouvé avec le titre \"" + titre + "\".")
         );
     }
-
+//Search Id
    public void  rechDocumentGetId(int id){
        Optional<Document> document = Recherche.trouverDocumentParId(id);
        System.out.printf("%-10s | %-20s | %-30s | %-15s | %-10s | %-12s |  %-12s %n",

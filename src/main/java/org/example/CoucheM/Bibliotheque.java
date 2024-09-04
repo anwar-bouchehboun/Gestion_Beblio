@@ -4,6 +4,7 @@ import org.example.CoucheM.abstraite.Document;
 import org.example.CoucheP.ConsoleUI.CostumColor;
 import org.example.CoucheU.optionel.Recherche;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Bibliotheque {
@@ -81,7 +82,31 @@ public class Bibliotheque {
 
        document.ifPresentOrElse(
                Document::afficherDetails,
-               () -> System.out.println("Aucun document trouvé avec le titre \"" + id + "\".")
+               () -> System.out.println("Aucun document trouvé avec le id \"" + id + "\".")
        );
    }
+   //update document
+    public void UpdateDoc(int id, String title, String auteur, LocalDate datePb,int nmbPage){
+         Optional<Document> document= Recherche.trouverDocumentParId(id);
+         document.ifPresentOrElse(
+                 doc->{
+                     doc.setTitre(title);
+                     doc.setAuteur(auteur);
+                     doc.setDatePublication(datePb);
+                     doc.setNombreDePages(nmbPage);
+                     System.out.println(CostumColor.BROWN_BACKGROUND + CostumColor.WHITE_BOLD_BRIGHT + "Document mis à jour avec succès." + CostumColor.RESET);
+
+                 },()->System.out.println("Aucun document trouvé avec le id \"" + id + "\".")
+
+         );
+    }
+    //Delete Doc
+    public void DeleteDoc(int id){
+        Optional<Document> document= Recherche.trouverDocumentParId(id);
+          document.ifPresentOrElse(doc->{
+           documents.remove(doc);
+    System.out.println(CostumColor.BROWN_BACKGROUND + CostumColor.WHITE_BOLD_BRIGHT + "Document supprimé avec succès." + CostumColor.RESET);
+
+          },()->System.out.println("Aucun document trouvé avec le id \"" + id + "\"."));
+    }
 }

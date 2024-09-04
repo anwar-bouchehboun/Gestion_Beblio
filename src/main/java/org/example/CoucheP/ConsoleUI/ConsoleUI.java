@@ -9,7 +9,6 @@ public class ConsoleUI {
     ControllerBiblio Bibliotheque =new ControllerBiblio();
     private final Scanner choix= new Scanner(System.in);
 
-
  public  void Start(){
      do {
          System.out.println(CostumColor.BROWN_BACKGROUND+CostumColor.WHITE_BOLD_BRIGHT+"----------------------------------------------------------- "+ CostumColor.RESET);
@@ -19,7 +18,8 @@ public class ConsoleUI {
          System.out.println("|Press 2 to" +CostumColor.PURPLE_BOLD_BRIGHT +"|• Liste Emprunter/Retouner un document"  + CostumColor.RESET);
          System.out.println("|Press 3 to" +CostumColor.PURPLE_BOLD_BRIGHT +"|• Afficher tous les documents "+ CostumColor.RESET);
          System.out.println("|Press 4 to" +CostumColor.PURPLE_BOLD_BRIGHT +"|• Rechercher un document "+ CostumColor.RESET);
-         System.out.println("|Press 5 to" +CostumColor.PURPLE_BOLD_BRIGHT +"| _____EXIT__________"+ CostumColor.RESET);
+         System.out.println("|Press 5 to" +CostumColor.PURPLE_BOLD_BRIGHT +"| Supprimer et modifer Documents"+ CostumColor.RESET);
+         System.out.println("|Press 6 to" +CostumColor.PURPLE_BOLD_BRIGHT +"| _____EXIT__________"+ CostumColor.RESET);
          System.out.println(CostumColor.BROWN_BACKGROUND+CostumColor.WHITE_BOLD_BRIGHT+"----------------------------------------------------------- "+ CostumColor.RESET);
 
          System.out.println("Choix => : " +CostumColor.PURPLE_BOLD_BRIGHT + " CHOIX "+ CostumColor.RESET);
@@ -40,8 +40,10 @@ public class ConsoleUI {
              Bibliotheque.rechDocument();
 
              break;
-
          case 5:
+             Bibliotheque.DeleteUpdateoDoc();
+             break;
+         case 6:
              System.out.println(CostumColor.PURPLE_BOLD_BRIGHT +"-----_____Exit_______------"+ CostumColor.RESET);
              return;
 

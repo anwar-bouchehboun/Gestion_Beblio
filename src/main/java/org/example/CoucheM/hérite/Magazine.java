@@ -50,12 +50,7 @@ public abstract class Magazine extends Document {
               System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
 
 
-             /* System.out.println("Titre: " + getTitre());
-              System.out.println("Auteur: " + getAuteur());
-              System.out.println("Date de Publication: " + getDatePublication());
-              System.out.println("Nombre de Pages: " + getNombreDePages());
-              System.out.println("Numéro: " + Numero);
-              System.out.println("Status: " + (isStatus() ? "Emprunté" : "Disponible"));*/
+
           }
 
     @Override

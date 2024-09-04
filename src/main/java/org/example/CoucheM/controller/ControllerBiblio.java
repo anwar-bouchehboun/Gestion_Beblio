@@ -69,7 +69,64 @@ public class ControllerBiblio {
         String titre = scanner.nextLine();
         Bibliotheque.retournerDocument(titre);
     }
+    public void DeleteUpdateoDoc(){
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
 
+            System.out.println(CostumColor.PURPLE_BOLD_BRIGHT +"Choisissez une option :\n1. Update Docment \n2. Delete Docement\n3.Affiche Mise Ajour \n4. Quitter"  + CostumColor.RESET);
+            System.out.println("Choix => : " +CostumColor.PURPLE_BOLD_BRIGHT + " CHOIX "+ CostumColor.RESET);
+            String choix = scanner.nextLine();
+
+            switch (choix) {
+                case "1":
+                    String titre = PattrenUtils.getStringInput("Entrez le titre du document :");
+                    String auteur = PattrenUtils.getStringInput("Entrez l'auteur du document :");
+                    int nombreDePages = PattrenUtils.getIntInput("Entrez le nombre de pages :");
+                    Scanner date = new Scanner(System.in);
+                    LocalDate datePublication,currentDate;
+                    currentDate  = LocalDate.now();
+                    do {
+                        System.out.println("Entrez la date de publication (AAAA-MM-JJ) :");
+                        datePublication = DateUtils.parseDate(date.nextLine());
+
+                        if (datePublication == null || datePublication.isAfter(currentDate)) {
+                            System.out.println("Date de publication invalide, opération annulée.");
+
+                        }
+                    } while (datePublication == null || datePublication.isAfter(currentDate));
+                    System.out.println("Entrez l'id du document :");
+                    try {
+                           int id = PattrenUtils.getIntInput("Entrez l'ID du document (numérique) :");
+
+                        Bibliotheque.UpdateDoc(id,titre,auteur,datePublication,nombreDePages);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Veuillez entrer un nombre valide pour l'id.");
+                        scanner.nextLine();
+                    }
+                    break;
+
+                case "2":
+                    try {
+                        int id = PattrenUtils.getIntInput("Entrez l'ID du document (numérique) :");
+
+                        Bibliotheque.DeleteDoc(id);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Veuillez entrer un nombre valide pour l'id.");
+                        scanner.nextLine();
+                    }
+                    break;
+                         case "3":afficherTousLesDocuments();
+                         break;
+                case "4":
+                    System.out.println(CostumColor.PURPLE_BOLD_BRIGHT + "-----_____Exit Supprimer/Modifier------" + CostumColor.RESET);
+                    return;
+
+                default:
+                    System.out.println(CostumColor.RED_BOLD_BRIGHT + "Choix invalide, veuillez réessayer." + CostumColor.RESET);
+                    break;
+            }
+        }
+    }
     public void MenuEmpRetouDoc(){
 
         do {
